@@ -1,6 +1,6 @@
 import React from 'react';
 import Product from '../components/Product';
-import data from "../api/data";
+import data from "../../../server/api/data";
 
 export default function HomePage() {
   return (
