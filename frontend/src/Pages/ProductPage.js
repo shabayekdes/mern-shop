@@ -4,7 +4,7 @@ import Rating from '../components/Rating';
 
 
 export default function ProductPage(props) {
-  const product = data.products.find((x) => x._id === props.match.params.id);
+  const product = props.products.find((x) => x._id === props.match.params.id);
   if (!product) {
     return <div> Product Not Found</div>;
   }
