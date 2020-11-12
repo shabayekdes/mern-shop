@@ -1,7 +1,18 @@
 import express from "express";
 import data from "./api/data.js";
+import mongoose from 'mongoose';
+import userRouter from './routers/userRouter.js';
 
 const app = express();
+
+//connect to mongodb
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
+
+app.use('/users', userRouter);
 
 app.get('/api/products', (req, res) => {
     res.send(data.products);
@@ -17,6 +28,10 @@ app.get('/api/products/:id', (req, res) => {
 
 app.get('/', (req, res) => {
     res.send('Server is ready');
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
 });
 
 const port = process.env.PORT || 5000;
