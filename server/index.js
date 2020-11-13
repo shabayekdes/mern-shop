@@ -1,11 +1,16 @@
 import express from "express";
-import data from "./api/data.js";
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import userRouter from './routers/userRouter.js';
 import productRouter from './routers/productRouter.js';
 import seedRouter from './routers/seedRouter.js';
+import authRouter from "./routers/authRouter.js";
+
+dotenv.config();
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //connect to mongodb
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
@@ -15,7 +20,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
 });
 
 app.use('/seeds', seedRouter);
-app.use('/api/users', userRouter);
+app.use('/api/auth', authRouter);
 
 app.use('/api/products', productRouter);
 
