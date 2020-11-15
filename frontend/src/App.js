@@ -5,7 +5,7 @@ import HomePage from "./Pages/HomePage";
 import ProductPage from "./Pages/ProductPage";
 import CartScreen from "./Pages/CartPage";
 import LoginPage from "./Pages/LoginPage";
-Create Registerimport RegisterPage from './Pages/RegisterPage';
+import RegisterPage from './Pages/RegisterPage';
 
 function App() {
   const cart = useSelector((state) => state.cart);
