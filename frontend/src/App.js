@@ -6,6 +6,7 @@ import ProductPage from "./Pages/ProductPage";
 import CartScreen from "./Pages/CartPage";
 import LoginPage from "./Pages/LoginPage";
 import RegisterPage from './Pages/RegisterPage';
+import ShippingAddressPage from './Pages/ShippingAddressPage';
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -56,6 +57,7 @@ function App() {
           <Route path="/product/:id" component={ProductPage}></Route>
           <Route path="/signin" component={LoginPage}></Route>
           <Route path="/register" component={RegisterPage}></Route>
+          <Route path="/shipping" component={ShippingAddressPage}></Route>
           <Route path="/" component={HomePage} exact></Route>
         </main>
         <footer className="row center">All right reserved</footer>
