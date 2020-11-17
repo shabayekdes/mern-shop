@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import productRouter from './routers/productRouter.js';
 import seedRouter from './routers/seedRouter.js';
 import authRouter from "./routers/authRouter.js";
+import orderRouter from './routers/orderRouter.js';
 
 dotenv.config();
 
@@ -23,7 +24,7 @@ app.use('/seeds', seedRouter);
 app.use('/api/auth', authRouter);
 
 app.use('/api/products', productRouter);
-
+app.use('/api/orders', orderRouter);
 
 app.get('/', (req, res) => {
     res.send('Server is ready');
